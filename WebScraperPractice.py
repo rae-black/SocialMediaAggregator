@@ -19,6 +19,7 @@ root.resizable(0, 0)
 root.title("Social Media Aggregator")
 canvas = Canvas(root).pack()
 
+#instagram login
 driver = webdriver.Chrome()
 driver.get("https://www.instagram.com/")
 username = WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
@@ -53,5 +54,44 @@ for img_file in os.listdir('C:/Users/raybo/OneDrive/Documents/School/Comp 363/im
     img = ImageTk.PhotoImage(Image.open(img_file))
     PILimages.append(img)
     canvas.create_image(20, 20, anchor=NW, image=img)
+
+
+
+
+#Twitter login
+driver = webdriver.Chrome()
+driver.get("https://twitter.com/?lang=en")
+click_sign_in = WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
+    (By.XPATH, "//button[contains(text(), 'Sign in')]"))).click()
+username = WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
+    (By.CSS_SELECTOR, "input[name='test']")))
+username.clear()
+username.send_keys("comptest363")
+click_next = WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
+    (By.XPATH, "//button[contains(text(), 'Next')]"))).click()
+
+password.clear()
+password = WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
+    (By.CSS_SELECTOR, "input[name='password']")))
+password.send_keys("Comp12345*")
+log_in = WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
+    (By.CSS_SELECTOR, "button[type= 'Log in']"))).click()
+
+
+#Facebook login
+driver = webdriver.Chrome()
+driver.get("https://twitter.com/?lang=en")
+username = WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
+    (By.CSS_SELECTOR, "input[name='email']")))
+username.clear()
+username.send_keys("comptest363@gmail.com")
+
+password = WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
+    (By.CSS_SELECTOR, "input[name='pass']")))
+password.clear()
+password.send_keys("Comp12345*")
+log_in = WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
+    (By.CSS_SELECTOR, "button[type= 'Log in']"))).click()
+
 
 root.mainloop()
