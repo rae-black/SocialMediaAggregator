@@ -56,8 +56,6 @@ for img_file in os.listdir('C:/Users/raybo/OneDrive/Documents/School/Comp 363/im
     canvas.create_image(20, 20, anchor=NW, image=img)
 
 
-
-
 #Twitter login
 driver = webdriver.Chrome()
 driver.get("https://twitter.com/?lang=en")
@@ -92,6 +90,7 @@ password.clear()
 password.send_keys("Comp12345*")
 log_in = WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
     (By.CSS_SELECTOR, "button[type= 'Log in']"))).click()
+
 
 
 root.mainloop()
